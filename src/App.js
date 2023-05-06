@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-function App() {
+import { routes } from "./routes";
+import LayoutWrapper from "./layout/LayoutWrapper";
+import Spinner from "./components/spinner";
+
+const App = () => {
+  let mainContent = routes.map((route) => (
+    <Route
+      key={route.name}
+      path={route.path}
+      exact={route.exact}
+      name={route.name}
+      element={<route.component />}
+    />
+  ));
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback={<Spinner />}>
+      <Router>
+        <LayoutWrapper>
+          <Routes>{mainContent}</Routes>
+        </LayoutWrapper>
+      </Router>
+    </Suspense>
   );
-}
+};
 
 export default App;

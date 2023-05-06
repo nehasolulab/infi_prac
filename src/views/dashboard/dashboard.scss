@@ -1,0 +1,26 @@
+#my_table .table thead tr {
+    background: rgba(247, 249, 252, 0.8);
+    backdrop-filter: blur(4px);
+    border: none;
+  }
+  #my_table .table tbody tr td {
+    border: none;
+    vertical-align: middle;
+  }
+  #my_table .table tbody tr {
+    border-top: 0.2px solid #e9edf5;
+  }
+  #my_table .table thead th {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #000;
+    vertical-align: bottom;
+    border-bottom: none;
+  }
+  .cp {
+    cursor: pointer;
+  }
+  
